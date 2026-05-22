@@ -1,0 +1,21 @@
+---
+const { title } = Astro.props;
+---
+<html lang='ko'>
+  <head>
+    <meta charset='utf-8' />
+    <title>{title}</title>
+    <style>
+      body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+      nav { margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+      nav a { margin-right: 20px; text-decoration: none; color: #333; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href='/'>Home</a>
+    </nav>
+    <h1>{title}</h1>
+    <slot />
+  </body>
+</html>
