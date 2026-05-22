@@ -3,15 +3,17 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  const insights = await getCollection('02_skill_insight');
-  return insights.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  // analysis 폴더 파일이면 '90_analysis', proposals 폴더 파일이면 '91_proposals'를 넣으세요.
+  const entries = await getCollection('90_analysis');
+  return entries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title || entry.slug}>
   <Content />
 </Layout>

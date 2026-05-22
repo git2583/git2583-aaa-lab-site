@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
+  // analysis 폴더 파일이면 '90_analysis', proposals 폴더 파일이면 '91_proposals'를 넣으세요.
   const entries = await getCollection('91_proposals');
   return entries.map(entry => ({
     params: { slug: entry.slug },
@@ -13,6 +14,6 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title || entry.slug}>
   <Content />
 </Layout>
