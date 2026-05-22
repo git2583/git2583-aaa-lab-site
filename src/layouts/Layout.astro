@@ -1,9 +1,10 @@
 ---
 const { title } = Astro.props;
 ---
-<html lang='ko'>
+<html lang="ko">
   <head>
-    <meta charset='utf-8' />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
     <style>
       body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; }
@@ -13,7 +14,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <nav>
-      <a href='/'>Home</a>
+      <a href="/">홈으로</a>
     </nav>
     <h1>{title}</h1>
     <slot />
