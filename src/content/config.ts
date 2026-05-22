@@ -1,5 +1,4 @@
-﻿import { defineCollection, z } from 'astro:content';
-
+import { defineCollection, z } from 'astro:content';
 const insightCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -8,7 +7,4 @@ const insightCollection = defineCollection({
     keywords: z.array(z.string()).optional(),
   }),
 });
-
-export const collections = {
-  '02_skill_insight': insightCollection,
-};
+export const collections = { '02_skill_insight': insightCollection };
