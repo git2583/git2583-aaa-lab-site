@@ -1,0 +1,16 @@
+﻿---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const insights = await getCollection('02_skill_insight');
+---
+<Layout title='기술 인사이트 목록'>
+  <ul>
+    {insights.map(post => (
+      <li>
+        <a href={/skill-insight/}>{post.data.title}</a>
+        <p>{post.data.summary}</p>
+      </li>
+    ))}
+  </ul>
+</Layout>
